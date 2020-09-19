@@ -1,0 +1,17 @@
+fields:
+    name:
+        label: 名称
+        span: full
+        type: text
+    title:
+        label: 标题
+        span: full
+        type: text
+    api:
+        label: 接口地址
+        span: full
+        type: text
+    browser:
+        label: 浏览器地址
+        span: full
+        type: text

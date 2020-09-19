@@ -1,0 +1,10 @@
+name: Currency
+form: $/plus/trc/models/currencymodel/fields.yaml
+modelClass: Plus\Trc\Models\CurrencyModel
+defaultRedirect: plus/trc/currency
+create:
+    redirect: 'plus/trc/currency/update/:id'
+    redirectClose: plus/trc/currency
+update:
+    redirect: plus/trc/currency
+    redirectClose: plus/trc/currency

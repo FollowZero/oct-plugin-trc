@@ -1,0 +1,117 @@
+fields:
+    name:
+        label: 名称
+        span: left
+        type: text
+        comment: 例：usdt
+    title:
+        label: 标题
+        span: right
+        type: text
+        comment: 例：USDT
+    symbol:
+        label: 符号
+        span: left
+        type: text
+        comment: 例：$
+    icon:
+        label: 图标
+        mode: image
+        imageWidth: '100'
+        imageHeight: '100'
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: right
+        type: fileupload
+    decimals:
+        label: 精度
+        span: left
+        type: text
+        comment: usdt的精度是6位小数
+    contract:
+        label: 合约地址
+        span: auto
+        type: text
+        comment: usdt的是“TR7NHqjeKQxGTCi8q8ZY4pL8otSzgjLj6t”
+    main:
+        label: 主地址
+        span: left
+        type: text
+        comment: 用于归集和提币
+    main_pwd:
+        label: 私钥
+        span: right
+        type: text
+        comment: 加密储存
+    node:
+        label: 节点网络
+        nameFrom: title
+        descriptionFrom: description
+        span: auto
+        type: relation
+    status:
+        label: 状态
+        span: auto
+        default: 1
+        type: switch
+tabs:
+    fields:
+        rg_cid:
+            label: 充币币种
+            span: auto
+            type: text
+            tab: 充币
+        rg_rate:
+            label: 充币汇率
+            span: auto
+            default: '1'
+            type: text
+            comment: 1个USDT若等于6系统币则填6
+            tab: 充币
+        rg_status:
+            label: 充币状态
+            span: auto
+            type: switch
+            tab: 充币
+        wd_cid:
+            label: 提币币种
+            span: auto
+            type: text
+            tab: 提币
+        wd_reta:
+            label: 提币汇率
+            span: auto
+            default: '1'
+            type: text
+            comment: 1个USDT若等于7系统币则填0.14
+            tab: 提币
+        wd_min:
+            label: 最小提币数量
+            span: auto
+            default: '0'
+            type: text
+            tab: 提币
+        wd_max:
+            label: 最大提币数量
+            span: auto
+            type: text
+            comment: 0标识没有最大限制
+            tab: 提币
+        wd_mul:
+            label: 提币整数倍
+            span: auto
+            type: text
+            tab: 提币
+        wd_fee:
+            label: 提币手续费
+            span: auto
+            type: text
+            comment: 2表示每笔扣2个代币作为手续费
+            tab: 提币
+        wd_status:
+            label: 提币状态
+            span: auto
+            type: switch
+            tab: 提币

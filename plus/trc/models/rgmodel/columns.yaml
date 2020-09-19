@@ -1,0 +1,25 @@
+columns:
+    id:
+        label: ID
+        type: text
+    user_id:
+        label: 用户信息
+        type: text
+    trc_cid:
+        label: 代币信息
+        type: text
+    hjd_cid:
+        label: 系统币信息
+        type: text
+    address_to:
+        label: to地址
+        type: text
+    num:
+        label: 代币数量
+        type: text
+    money:
+        label: 系统币金额
+        type: text
+    created_at:
+        label: 到账时间
+        type: datetime

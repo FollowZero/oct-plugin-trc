@@ -1,0 +1,19 @@
+<?php if ($formModel->status==0): ?>
+    <a
+        href="javascript:;"
+        data-request="onPass"
+        data-request-confirm="确定批准提币"
+        class="btn btn-default oc-icon-check">
+        批准
+    </a>
+    <a
+        href="javascript:;"
+        data-request="onFail"
+        data-request-confirm="确定拒绝提币"
+        data-track-input
+        class="btn btn-default oc-icon-close">
+        拒绝
+    </a>
+<?php endif ?>
+
+

@@ -1,0 +1,26 @@
+fields:
+  user_id:
+    label: 会员信息
+    span: auto
+    type: text
+  num:
+    label: 提币数量
+    span: auto
+    type: text
+  fee:
+    label: 手续费
+    span: auto
+    type: text
+  num_true:
+    label: 实际数量
+    span: auto
+    type: text
+  status:
+    label: 状态
+    options:
+      0: 待审核
+      1: 已通过
+      -1: 已拒绝
+    showSearch: true
+    span: auto
+    type: dropdown

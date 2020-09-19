@@ -1,0 +1,10 @@
+name: Wd
+form: $/plus/trc/models/wdmodel/fields.yaml
+modelClass: Plus\Trc\Models\WdModel
+defaultRedirect: plus/trc/wd
+create:
+    redirect: 'plus/trc/wd/update/:id'
+    redirectClose: plus/trc/wd
+update:
+    redirect: plus/trc/wd
+    redirectClose: plus/trc/wd

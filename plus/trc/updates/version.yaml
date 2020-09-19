@@ -1,0 +1,17 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table plus_trc_node'
+    - builder_table_create_plus_trc_node.php
+1.0.3:
+    - 'Created table plus_trc_currency'
+    - builder_table_create_plus_trc_currency.php
+1.0.4:
+    - 'Created table plus_trc_address'
+    - builder_table_create_plus_trc_address.php
+1.0.5:
+    - 'Created table plus_trc_rg'
+    - builder_table_create_plus_trc_rg.php
+1.0.6:
+    - 'Created table plus_trc_wd'
+    - builder_table_create_plus_trc_wd.php

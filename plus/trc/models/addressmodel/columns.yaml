@@ -1,0 +1,13 @@
+columns:
+    id:
+        label: ID
+        type: text
+    user_id:
+        label: 用户信息
+        type: text
+    address:
+        label: 钱包地址
+        type: text
+    created_at:
+        label: 创建时间
+        type: datetime

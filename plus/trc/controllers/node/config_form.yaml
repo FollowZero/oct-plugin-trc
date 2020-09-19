@@ -1,0 +1,10 @@
+name: Node
+form: $/plus/trc/models/nodemodel/fields.yaml
+modelClass: Plus\Trc\Models\NodeModel
+defaultRedirect: plus/trc/node
+create:
+    redirect: 'plus/trc/node/update/:id'
+    redirectClose: plus/trc/node
+update:
+    redirect: plus/trc/node
+    redirectClose: plus/trc/node

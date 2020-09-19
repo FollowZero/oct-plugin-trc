@@ -1,0 +1,22 @@
+columns:
+    id:
+        label: ID
+        type: text
+    user_id:
+        label: 会员信息
+        type: text
+    num:
+        label: 提币数量
+        type: text
+    fee:
+        label: 提币手续费
+        type: text
+    num_true:
+        label: 实际数量
+        type: text
+    address_to:
+        label: 提币地址
+        type: text
+    status:
+        label: 状态
+        type: text

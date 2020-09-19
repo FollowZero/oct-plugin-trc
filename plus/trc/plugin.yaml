@@ -1,0 +1,58 @@
+plugin:
+    name: 'plus.trc::lang.plugin.name'
+    description: 'plus.trc::lang.plugin.description'
+    author: Plus
+    icon: oc-icon-bitcoin
+    homepage: ''
+permissions:
+    trc_node:
+        tab: TRC20
+        label: 节点管理
+    trc_currency:
+        tab: TRC20
+        label: 币种管理
+    trc_address:
+        tab: TRC20
+        label: 地址管理
+    trc_rg:
+        tab: TRC20
+        label: 充币管理
+    trc_wd:
+        tab: TRC20
+        label: 提币管理
+navigation:
+    main-menu-item-trc20:
+        label: TRC20
+        url: plus/trc/currency
+        icon: icon-bitcoin
+        sideMenu:
+            side-menu-item-node:
+                label: 节点管理
+                url: plus/trc/node
+                icon: icon-slack
+                permissions:
+                    - trc_node
+            side-menu-item-currency:
+                label: 币种管理
+                url: plus/trc/currency
+                icon: icon-stack-overflow
+                permissions:
+                    - trc_currency
+            side-menu-item-address:
+                label: 地址管理
+                url: plus/trc/address
+                icon: icon-sliders
+                permissions:
+                    - trc_address
+            side-menu-item-rg:
+                label: 充币管理
+                url: plus/trc/rg
+                icon: icon-plug
+                permissions:
+                    - trc_rg
+            side-menu-item-wd:
+                label: 提币管理
+                url: plus/trc/wd
+                icon: icon-anchor
+                permissions:
+                    - trc_wd
