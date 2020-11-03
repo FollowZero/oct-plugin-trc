@@ -13,6 +13,7 @@ use mattvb91\TronTrx\Support\Base58;
 use mattvb91\TronTrx\Support\Crypto;
 use mattvb91\TronTrx\Support\Hash;
 use Phactor\Key;
+use Elliptic\EC;
 
 class TRC20
 {
@@ -120,6 +121,49 @@ class TRC20
         } while (!$validAddress);
 
         return $address;
+    }
+    //            这是官网说明
+//            生成密钥对算法
+//            Tron的签名算法为ECDSA，选用曲线为SECP256K1。其私钥为一个随机数，公钥为椭圆曲线上一个点。生成过程为，首先生成一个随机数d作为私钥，再计算P = d * G作为公钥；其中G为椭圆曲线的基点。
+//
+//            地址格式说明
+//            用公钥P作为输入，计算SHA3得到结果H, 这里公钥长度为64字节，SHA3选用Keccak256。
+//            取H的最后20字节，在前面填充一个字节0x41得到address。
+//
+//            对address进行basecheck计算得到最终地址，所有地址的第一个字符为T。
+//
+//            其中basecheck的计算过程为：首先对address计算sha256得到h1，再对h1计算sha256得到h2，取其前4字节作为check填充到address之后得到address||check，对其进行base58编码得到最终结果。
+//
+//            我们用的字符映射表为：
+//            ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz"
+
+//            目前遇到的问题是有很小的概率会出现地址和私钥不匹配的情况，造成损失。
+//            分析错误的原因是上边$keyPair这个密钥对有可能有问题,
+//            私钥$privateKey加密存库,"用公钥P作为输入"经过一系列运算得到地址。
+//            解决问题
+//            如果说我拿到数据库里存的私钥能反推出地址，对比之前生成的地址。就能验证。
+//            验证发现拿出错的地址的存库私钥，反推的地址 和 存库私钥导入TronLink Wallet显示的地址一样
+//            结论是再加一层私钥反推的验证应该可以避免该错误。待讨论
+
+/**
+     * 根据私钥获取地址
+     * @param $privatekey
+     * @return string
+     */
+    public function getAddressByPrivateKey($privatekey){
+
+        //https://github.com/simplito/elliptic-php
+        $e=  new EC('secp256k1');
+        $keyPair = $e->keyFromPrivate($privatekey);
+        $privateKey = $keyPair->getPrivate()->toString(16,2);
+        $publicKey = $keyPair->getPublic()->encode('hex');//拿到这个公钥推算地址
+
+        $pubKeyBin = hex2bin($publicKey);
+        $addressHex = $this->getAddressHex($pubKeyBin);
+        $addressBin = hex2bin($addressHex);
+        $addressBase58 = $this->getBase58CheckAddress($addressBin);
+
+        return $addressBase58;
     }
 
     /**
